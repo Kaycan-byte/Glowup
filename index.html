@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoGlow - Premium Mobile Car Detailing</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f7fa;
+        }
+        .presentation {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .slide {
+            padding: 30px;
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+        .active {
+            display: block;
+        }
+        h1 {
+            color: #2c3e50;
+            margin-top: 0;
+            font-size: 28px;
+        }
+        h2 {
+            color: #3498db;
+            font-size: 24px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+            margin-top: 0;
+        }
+        .highlight {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-left: 4px solid #3498db;
+            margin: 15px 0;
+        }
+        .price-tag {
+            background: #3498db;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            display: inline-block;
+            font-weight: bold;
+            font-size: 20px;
+            margin: 10px 0;
+        }
+        .btn {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 5px;
+            transition: background 0.3s;
+        }
+        .btn:hover {
+            background: #2980b9;
+        }
+        .btn-secondary {
+            background: #95a5a6;
+        }
+        .btn-secondary:hover {
+            background: #7f8c8d;
+        }
+        .controls {
+            text-align: center;
+            padding: 15px;
+            background: #ecf0f1;
+        }
+        .feature-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .feature-list li {
+            padding: 8px 0;
+            position: relative;
+            padding-left: 30px;
+        }
+        .feature-list li:before {
+            content: "✓";
+            color: #27ae60;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .comparison-table th, .comparison-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        .comparison-table th {
+            background-color: #3498db;
+            color: white;
+        }
+        .comparison-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .testimonial {
+            font-style: italic;
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            position: relative;
+        }
+        .testimonial:before {
+            content: '"';
+            font-size: 50px;
+            color: #3498db;
+            position: absolute;
+            left: 10px;
+            top: 10px;
+            opacity: 0.3;
+        }
+        .testimonial-author {
+            text-align: right;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation">
+        <!-- Slide 1: Title -->
+        <div class="slide active" id="slide1">
+            <h1>AutoGlow Mobile Car Detailing</h1>
+            <h2>Your Car's Monthly Health Plan</h2>
+            <p>Premium prescription-based detailing service that keeps your car flawless every week</p>
+            <div class="highlight">
+                <div class="price-tag">Only R800/month</div>
+                <p>Weekly professional detailing with ceramic coating included</p>
+            </div>
+            <img src="images (2).jpeg" alt="Clean car" style="width:100%; border-radius:5px; margin-top:15px;">
+        </div>
+
+        <!-- Slide 2: The Problem -->
+        <div class="slide" id="slide2">
+            <h2>The Problem We Solve</h2>
+            <ul class="feature-list">
+                <li>Your car gets dirty faster than you can clean it</li>
+                <li>Traditional detailing is expensive (R500-R1500 per session)</li>
+                <li>Finding time for car care is challenging</li>
+                <li>UV rays and dirt damage your paint over time</li>
+                <li>Ceramic coating is normally R1500+ as a separate service</li>
+            </ul>
+            <div class="testimonial">
+                "I used to spend my Saturdays cleaning my car. Now AutoGlow handles it while I'm at work!"
+                <div class="testimonial-author">- Thabo M., Sandton</div>
+            </div>
+        </div>
+
+        <!-- Slide 3: Our Solution -->
+        <div class="slide" id="slide3">
+            <h2>Our Revolutionary Solution</h2>
+            <div class="price-tag">R800/month subscription</div>
+            <ul class="feature-list">
+                <li><strong>Weekly professional detailing</strong> (4x/month)</li>
+                <li><strong>Ceramic coating included</strong> (protects your paint)</li>
+                <li><strong>We come to you</strong> - home, office, or gym</li>
+                <li><strong>Eco-friendly products</strong> safe for your family</li>
+                <li><strong>Priority booking</strong> for subscribers</li>
+            </ul>
+            <table class="comparison-table">
+                <tr>
+                    <th>Service</th>
+                    <th>AutoGlow</th>
+                    <th>Traditional Detailing</th>
+                </tr>
+                <tr>
+                    <td>Weekly Cleaning</td>
+                    <td>✓ Included</td>
+                    <td>✗ Pay per visit</td>
+                </tr>
+                <tr>
+                    <td>Ceramic Coating</td>
+                    <td>✓ Included</td>
+                    <td>R1500+ extra</td>
+                </tr>
+                <tr>
+                    <td>Price</td>
+                    <td>R200/week</td>
+                    <td>R500+ per visit</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Slide 4: How It Works -->
+        <div class="slide" id="slide4">
+            <h2>How AutoGlow Works</h2>
+            <ol style="padding-left: 20px;">
+                <li><strong>Subscribe:</strong> Sign up for R800/month</li>
+                <li><strong>Schedule:</strong> Choose your preferred day/time each week</li>
+                <li><strong>We Arrive:</strong> Our team comes to your location</li>
+                <li><strong>Enjoy:</strong> Drive away in a spotless, protected car</li>
+            </ol>
+            <div class="highlight">
+                <h3>Current Promotion</h3>
+                <p>First 20 subscribers get <strong>FREE interior sanitization</strong> (worth R300)</p>
+                <button class="btn" onclick="showContactForm()">Claim This Offer</button>
+            </div>
+        </div>
+
+        <!-- Slide 5: Call to Action -->
+        <div class="slide" id="slide5">
+            <h2>Ready for a Flawless Car Every Week?</h2>
+            <p>Join AutoGlow today and never worry about car cleaning again!</p>
+            <div style="text-align: center; margin: 30px 0;">
+                <button class="btn" onclick="showContactForm()">Subscribe Now</button>
+                <p>or WhatsApp us at <strong>+27 81 769 7078 </strong></p>
+            </div>
+            <div class="testimonial">
+                "After 3 months with AutoGlow, my 5-year-old BMW looks brand new. Best investment ever!"
+                <div class="testimonial-author">- Nomzamo K., Johannesburg </div>
+            </div>
+        </div>
+
+        <!-- Contact Form (hidden by default) -->
+        <div id="contactForm" style="display: none; padding: 20px;">
+            <h2>Get Started with AutoGlow</h2>
+            <form id="signupForm" style="margin-top: 20px;">
+                <div style="margin-bottom: 15px;">
+                    <label for="name" style="display: block; margin-bottom: 5px;">Full Name</label>
+                    <input type="text" id="name" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;" required>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <label for="email" style="display: block; margin-bottom: 5px;">Email</label>
+                    <input type="email" id="email" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;" required>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <label for="phone" style="display: block; margin-bottom: 5px;">Phone Number</label>
+                    <input type="tel" id="phone" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;" required>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <label for="location" style="display: block; margin-bottom: 5px;">Nearest City</label>
+                    <select id="location" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
+                        <option value="jhb">Johannesburg</option>
+                        <option value="cpt">Cape Town</option>
+                        <option value="dbn">Durban</option>
+                        <option value="pta">Pretoria</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn">Submit Application</button>
+                <button type="button" class="btn btn-secondary" onclick="hideContactForm()">Back to Presentation</button>
+            </form>
+        </div>
+
+        <!-- Slide Controls -->
+        <div class="controls">
+            <button class="btn btn-secondary" onclick="prevSlide()">Previous</button>
+            <span id="slideIndicator">Slide 1 of 5</span>
+            <button class="btn" onclick="nextSlide()">Next</button>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 1;
+        const totalSlides = 5;
+
+        function showSlide(n) {
+            // Hide all slides
+            document.querySelectorAll('.slide').forEach(slide => {
+                slide.classList.remove('active');
+            });
+            
+            // Show selected slide
+            document.getElementById(`slide${n}`).classList.add('active');
+            
+            // Update indicator
+            document.getElementById('slideIndicator').textContent = `Slide ${n} of ${totalSlides}`;
+            
+            currentSlide = n;
+        }
+
+        function nextSlide() {
+            if (currentSlide < totalSlides) {
+                showSlide(currentSlide + 1);
+            } else {
+                showSlide(1);
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlide > 1) {
+                showSlide(currentSlide - 1);
+            } else {
+                showSlide(totalSlides);
+            }
+        }
+
+        function showContactForm() {
+            document.querySelectorAll('.slide').forEach(slide => {
+                slide.style.display = 'none';
+            });
+            document.querySelector('.controls').style.display = 'none';
+            document.getElementById('contactForm').style.display = 'block';
+        }
+
+        function hideContactForm() {
+            document.querySelectorAll('.slide').forEach(slide => {
+                slide.style.display = 'none';
+            });
+            document.querySelector('.controls').style.display = 'block';
+            document.getElementById(`slide${currentSlide}`).style.display = 'block';
+            document.getElementById('contactForm').style.display = 'none';
+        }
+
+        // Initialize form submission
+        document.getElementById('signupForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your interest! We will contact you shortly to complete your subscription.');
+            hideContactForm();
+        });
+
+        // Initialize first slide
+        showSlide(1);
+    </script>
+</body>
+</html>
