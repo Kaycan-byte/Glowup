@@ -139,6 +139,14 @@
             font-weight: bold;
             margin-top: 10px;
         }
+        #formSuccess {
+            display: none;
+            background: #27ae60;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 <body>
@@ -228,39 +236,45 @@
             <p>Join AutoGlow today and never worry about car cleaning again!</p>
             <div style="text-align: center; margin: 30px 0;">
                 <button class="btn" onclick="showContactForm()">Subscribe Now</button>
-                <p>or WhatsApp us at <strong>+27 81 769 7078 </strong></p>
+                <p>or WhatsApp us at <strong>+27 81 769 7078</strong></p>
             </div>
             <div class="testimonial">
                 "After 3 months with AutoGlow, my 5-year-old BMW looks brand new. Best investment ever!"
-                <div class="testimonial-author">- Nomzamo K., Johannesburg </div>
+                <div class="testimonial-author">- Nomzamo K., Johannesburg</div>
             </div>
         </div>
 
         <!-- Contact Form (hidden by default) -->
         <div id="contactForm" style="display: none; padding: 20px;">
             <h2>Get Started with AutoGlow</h2>
-            <form id="signupForm" style="margin-top: 20px;">
+            <div id="formSuccess">Thank you! We'll contact you shortly to confirm your subscription.</div>
+            <form id="signupForm" action="https://formsubmit.co/organicfoodsonthego@gmail.com" method="POST" style="margin-top: 20px;">
+                <input type="hidden" name="_subject" value="New AutoGlow Subscription Request">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_next" value="#formSuccess">
+                
                 <div style="margin-bottom: 15px;">
                     <label for="name" style="display: block; margin-bottom: 5px;">Full Name</label>
-                    <input type="text" id="name" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;" required>
+                    <input type="text" id="name" name="name" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;" required>
                 </div>
                 <div style="margin-bottom: 15px;">
                     <label for="email" style="display: block; margin-bottom: 5px;">Email</label>
-                    <input type="email" id="email" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;" required>
+                    <input type="email" id="email" name="email" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;" required>
                 </div>
                 <div style="margin-bottom: 15px;">
                     <label for="phone" style="display: block; margin-bottom: 5px;">Phone Number</label>
-                    <input type="tel" id="phone" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;" required>
+                    <input type="tel" id="phone" name="phone" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;" required>
                 </div>
                 <div style="margin-bottom: 15px;">
                     <label for="location" style="display: block; margin-bottom: 5px;">Nearest City</label>
-                    <select id="location" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
+                    <select id="location" name="location" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
                         <option value="jhb">Johannesburg</option>
                         <option value="cpt">Cape Town</option>
                         <option value="dbn">Durban</option>
                         <option value="pta">Pretoria</option>
                     </select>
                 </div>
+                <input type="hidden" name="_autoresponse" value="Thank you for your AutoGlow subscription request! We'll contact you within 24 hours to confirm your weekly detailing schedule.">
                 <button type="submit" class="btn">Submit Application</button>
                 <button type="button" class="btn btn-secondary" onclick="hideContactForm()">Back to Presentation</button>
             </form>
@@ -279,34 +293,20 @@
         const totalSlides = 5;
 
         function showSlide(n) {
-            // Hide all slides
             document.querySelectorAll('.slide').forEach(slide => {
                 slide.classList.remove('active');
             });
-            
-            // Show selected slide
             document.getElementById(`slide${n}`).classList.add('active');
-            
-            // Update indicator
             document.getElementById('slideIndicator').textContent = `Slide ${n} of ${totalSlides}`;
-            
             currentSlide = n;
         }
 
         function nextSlide() {
-            if (currentSlide < totalSlides) {
-                showSlide(currentSlide + 1);
-            } else {
-                showSlide(1);
-            }
+            currentSlide < totalSlides ? showSlide(currentSlide + 1) : showSlide(1);
         }
 
         function prevSlide() {
-            if (currentSlide > 1) {
-                showSlide(currentSlide - 1);
-            } else {
-                showSlide(totalSlides);
-            }
+            currentSlide > 1 ? showSlide(currentSlide - 1) : showSlide(totalSlides);
         }
 
         function showContactForm() {
@@ -315,6 +315,7 @@
             });
             document.querySelector('.controls').style.display = 'none';
             document.getElementById('contactForm').style.display = 'block';
+            document.getElementById('formSuccess').style.display = 'none';
         }
 
         function hideContactForm() {
@@ -326,15 +327,27 @@
             document.getElementById('contactForm').style.display = 'none';
         }
 
-        // Initialize form submission
+        // Form submission handler
         document.getElementById('signupForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            alert('Thank you for your interest! We will contact you shortly to complete your subscription.');
-            hideContactForm();
+            const form = this;
+            fetch(form.action, {
+                method: 'POST',
+                body: new FormData(form)
+            })
+            .then(response => {
+                if(response.ok) {
+                    form.style.display = 'none';
+                    document.getElementById('formSuccess').style.display = 'block';
+                    form.reset();
+                }
+            })
+            .catch(error => {
+                alert('Error submitting form. Please try again or contact us directly.');
+            });
         });
 
-        // Initialize first slide
         showSlide(1);
     </script>
 </body>
-</html>
+                </html>
